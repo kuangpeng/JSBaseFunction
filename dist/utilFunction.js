@@ -1,0 +1,5 @@
+/*
+ * 对于高耗能事件，debounce 函数是一种不错解决方案。如果你不对 scroll、resize、和 key* 事件使用 debounce  函数，那么你几乎等同于犯了错误
+ * debounce 函数不允许回调函数在指定时间内执行多于一次。当为一个会频繁触发的事件分配一个回调函数时，该函数显得尤为重要。
+ */
+"use strict";function debounce(e,n,r){var t;return function(){var u=this,i=arguments,o=function(){t=null,r||e.apply(u,i)},c=r&&!t;clearTimeout(t),t=setTimeout(o,n),c&&e.apply(u,i)}}function once(e,n){var r;return function(){return e&&(r=e.apply(n||this,arguments),e=null),r}}function poll(e,n,r,t,u){var i=Number(new Date)+(t||2e3);u=u||100,function t(){e()?n():Number(new Date)<i?setTimeout(t,u):r(new Error("timed out for "+e+": "+arguments))}()}function TemplateEngine(e,n){for(var r,t=/<%([^%>]+)?%>/g,u="var r=[];\n",i=0,o=function(e,n){return u+=n?e.match(/(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g)?e+"\n":"r.push("+e+");\n":""!=e?'r.push("'+e.replace(/"/g,'\\"')+'");\n':"",o};r=t.exec(e);)o(e.slice(i,r.index))(r[1],!0),i=r.index+r[0].length;return o(e.substr(i,e.length-i)),u+='return r.join("");',new Function(u.replace(/[\r\t\n]/g,"")).apply(n)}var getAbsoluteUrl=function(){var e;return function(n){return e||(e=document.createElement("a")),e.href=n,e.href}}();

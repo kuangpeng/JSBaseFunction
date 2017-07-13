@@ -1,0 +1,24 @@
+{
+  "name": "jsbasefunctionandutil",
+  "version": "1.0.0",
+  "description": "some usefull function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuangpeng/JSBaseFunction.git"
+  },
+  "author": "kuangpeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuangpeng/JSBaseFunction/issues"
+  },
+  "homepage": "https://github.com/kuangpeng/JSBaseFunction#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^2.1.2"
+  }
+}
