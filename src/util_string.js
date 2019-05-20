@@ -206,3 +206,27 @@ utilK.utilString.toJson = function (str) {
     try{return JSON.parse(str);}
     catch (e) { return null; }
 };
+
+/**
+ * 去除url字符串中指定参数
+ * @param url 要进行操作的url
+ * @param name 要去除的参数
+ * @return {*} 返回处理过的url字符串
+ */
+utilK.utilString.urlDelP = function urlDelP(url,name){
+    var urlArr = url.split('?');
+    if(urlArr.length>1 && urlArr[1].indexOf(name)>-1){
+        var query = urlArr[1];
+        var obj = {}
+        var arr = query.split("&");
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].split("=");
+            obj[arr[i][0]] = arr[i][1];
+        };
+        delete obj[name];
+        var urlte = urlArr[0] +'?'+ JSON.stringify(obj).replace(/[\"\{\}]/g,"").replace(/\:/g,"=").replace(/\,/g,"&");
+        return urlte;
+    }else{
+        return url;
+    };
+}
